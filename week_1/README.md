@@ -6,3 +6,4 @@
   - practice_1.R
 
 * hw_1(作業)
+  - hw_1_basic.R
