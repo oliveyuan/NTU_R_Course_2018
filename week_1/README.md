@@ -3,7 +3,7 @@
 * course_1(練習)
   - practice_1.R
   - practice_2.R
-  - practice_1.R
+  - practice_3.R
 
 * hw_1(作業)
   - hw_1_basic.R
