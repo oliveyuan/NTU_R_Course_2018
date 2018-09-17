@@ -1,9 +1,9 @@
 ## week_1
 
 * course_1(練習)
-  - practice_1.R
-  - practice_2.R
-  - practice_3.R
+  - practice_1.R(*BMI*)
+  - practice_2.R(*課堂成績*)
+  - practice_3.R(*資料*)
 
 * hw_1(作業)
   - hw_1_basic.R
