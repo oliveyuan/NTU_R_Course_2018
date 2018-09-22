@@ -1,1 +1,1 @@
-markdown­·®æ(readme):https://kingofamani.gitbooks.io/git-teach/content/chapter_6_gitbook/markdown.html
+markdowné¢¨æ ¼(readme):https://kingofamani.gitbooks.io/git-teach/content/chapter_6_gitbook/markdown.html

@@ -18,3 +18,18 @@
   - 於該資料夾中，上傳本周練習的成果檔案(ex: hw_1_answers.R)
   
 ***
+## week_2
+
+* course_2(練習)
+  - practice_1.R
+  - practice_2.R
+  - crawler_practice.R
+* hw_2(作業)
+  - hw_2_extra_OOXX_game.R
+* week_2任務
+  - 建立一命名為 week_2(or task_2, hw_2)的資料夾。
+  - 完成一支網站爬蟲上傳至資料夾中，繳交三種類型檔案(.R, .Rmd, .html)。
+  - 挑戰作業：完成 OOXX遊戲
+
+***
+
