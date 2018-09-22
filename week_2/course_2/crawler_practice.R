@@ -33,4 +33,3 @@ rm(list = ls())
 library(jsonlite)
 url <- "https://www.dcard.tw/_api/posts?popular=true"
 res <- fromJSON(url)
-res
