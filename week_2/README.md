@@ -11,7 +11,9 @@
 * hw_2(作業)
   - CNNcrawlerPractice
     >CNNcrawlerPractice.R
+    
     >CNNcrawlerPractice.rmd
+    
     >CNNcrawlerPractice.html
     
   - hw_2_extra_OOXX_game.R
