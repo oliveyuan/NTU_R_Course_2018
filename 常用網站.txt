@@ -1,1 +1,2 @@
 markdown風格(readme):https://kingofamani.gitbooks.io/git-teach/content/chapter_6_gitbook/markdown.html
+Rmarkdown簡介:https://bookdown.org/tpemartin/rmarkdown_intro/
