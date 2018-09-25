@@ -1,66 +1,135 @@
-########################################################### 
-# 加分作業：
-# 當要完成的目標變複雜後，學習如何將複雜的問題拆解成一個一個小問題來解決
-# 練習 R function 的使用
+checkAB <- function(symbol){
+  
+  if(symbol==A){
+    print("A win")
+    print(graph)
+    
+    
+  }else{
+    print("B win")
+    print(graph)
+  
+  }
+ 
+}
+#圖形
+str1 <- c("1","_","4","_","7")
+str2 <- c("|","_","|","_","|")
+str3 <- c("2","_","5","_","8")
+str4 <- c("|","_","|","_","|")
+str5 <- c("3","_","6","_","9")
+graph <- data.frame(str1,str2,str3,str4,str5)
+names(graph) <- c("1","2","3","4","5")
+A <- "O"
+B <- "X"
+r <- 1
 
-# OOXX 遊戲練習
-# 1. 設計一個兩人的OOXX遊戲。
-# 2. 遊戲玩家分為A、B。A 先手，使用的符號為'O'; B 後手，使用的符號為'X'
-# 3. 遊戲一開始，請輸出以下遊戲提示，並且停留等待玩家A輸入
+test <- c()
 
-#    Round 0
-#    Now is player A's term!
-#    Player A input(1~9) : 
-
-# 4. 玩家們可以輸入的數字範圍為 1~9，依序對應九宮格的九格位置。
-#    如果輸入錯誤，請抓錯！輸出以下遊戲提示。
-
-#    Invalid input! Please re-enter! 
-#    Round 0
-#    Now is player A's term!
-#    Player A input(1~9) : 
-
-# 5. 待玩家正確輸入完後，請輸出以下遊戲提示(當時的遊戲圖形狀況)，並且等待切換到另外一位玩家等待輸入。
-#    * 提醒，記得增加'Round'次數，以及切換使用者
-
-#    O| | 
-#    _____
-#     | | 
-#    _____
-#     | | 
-#    **************
-#    Round 1
-#    Now is player B's term!
-#    Player B input(1~9) : 
-
-# 6. 當玩家輸入的位置之前已經有'O'或'X'時，請輸出以下遊戲提示。
-
-#    This position is already occupied!
-#    Round 1
-#    Now is player B's term!
-#    Player B input(1~9) : 
-
-# 7. 當使用者輸入'exit'時，結束遊戲並印出以下遊戲提示 
-
-#    Bye-Bye!!
-
-# 8. 判斷遊戲結束！當三個直排、橫排、或者斜排時，請輸出以下遊戲提示(當時的遊戲圖形狀況)，並且輸出勝利的玩家。
-
-#    O|X|O
-#    _____
-#    X|O|X
-#    _____
-#    O| | 
-#    **************
-#    Player A wins!!! 
-#
-
-# 9. 當空格皆被填滿且無玩家獲勝時，請輸出以下遊戲提示(當時的遊戲圖形狀況)以及和局遊戲提示。
-
-#   O|O|X
-#   _____
-#   X|X|O
-#   _____
-#   O|X|O
-#   **************
-#   End in a draw!!! 
+while(T){
+  
+  print(graph)
+#回數判斷
+  if(r == 10){
+    
+    cat("End in a draw!!!\n")
+    break
+    
+  }else if(r%%2==0){
+    
+    
+    symbol <- B
+    cat("Round",r,"\n","Now is player B's term!\n")
+    input <- (readline("Player B input(1~9) :"))
+    
+    
+  }else if(r%%2!=0){
+    
+    symbol <- A
+    cat("Round",r,"\n","Now is player A's term!\n")
+    input <- (readline("Player A input(1~9) :"))
+    
+  }
+#輸入為文字或數字
+  if(input == "exit"){
+    
+  }else{
+    
+    input <- as.integer(input)
+  }
+#將輸入存入一向量方便觀察是否重複
+  test[r] <- input
+#輸入判斷後輸出回應
+    if(input == "exit"){
+    
+      cat("Bye-Bye!!")
+      break
+      
+    }else if(input %in% c(1:9) == F){
+      
+      cat("Invalid input! Please re-enter!\n")
+      
+      r <- r-1
+     
+      
+    }else if(input %in% test[1:r-1]){
+      
+      
+      cat("This position is already occupied!\n")
+      
+      r <- r-1
+      
+    }else if(input%%3==1){
+      
+      str1[(input - (as.integer(input/3)))] <- symbol
+      
+      
+    }else if(input%%3==2){
+      
+      str3[input - as.integer(input/3) - 1] <- symbol
+      
+      
+    }else if(input%%3==0){
+      
+      str5[input - (as.integer(input/3)+1)] <- symbol
+      
+    }
+  
+  
+  graph <- data.frame(str1,str2,str3,str4,str5)
+  names(graph) <- c("1","2","3","4","5")
+  
+  
+ 
+#勝利條件判斷
+ if(graph[1,1]==symbol && graph[1,3]==symbol && graph[1,5]==symbol){
+   checkAB(symbol)
+   break
+ }else if(graph[3,1]==symbol && graph[3,3]==symbol && graph[3,5]==symbol){
+   checkAB(symbol)
+   break
+ }else if(graph[5,1]==symbol && graph[5,3]==symbol && graph[5,5]==symbol){
+   checkAB(symbol)
+   break
+ }else if(graph[1,1]==symbol && graph[3,1]==symbol && graph[5,1]==symbol){
+   checkAB(symbol)
+   break
+ }else if(graph[1,3]==symbol && graph[3,3]==symbol && graph[5,3]==symbol){
+   checkAB(symbol)
+   break
+ }else if(graph[1,5]==symbol && graph[3,5]==symbol && graph[5,5]==symbol){
+   checkAB(symbol)
+   break
+ }else if(graph[1,1]==symbol && graph[3,3]==symbol && graph[5,5]==symbol){
+   checkAB(symbol)
+   break
+ }else if(graph[1,5]==symbol && graph[3,3]==symbol && graph[5,1]==symbol){
+   checkAB(symbol)
+   break
+ }
+  
+  
+  r <- r+1
+  
+  
+}
