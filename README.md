@@ -24,8 +24,11 @@
   - practice_1.R
   - practice_2.R
   - crawler_practice.R
+  
 * hw_2(作業)
+  - CNNcrawlerPractice
   - hw_2_extra_OOXX_game.R
+  
 * week_2任務
   - 建立一命名為 week_2(or task_2, hw_2)的資料夾。
   - 完成一支網站爬蟲上傳至資料夾中，繳交三種類型檔案(.R, .Rmd, .html)。
