@@ -7,7 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#³æÅÜ¼Æ¡GÃþ§O«¬
+#å–®è®Šæ•¸ï¼šé¡žåˆ¥åž‹
 ```{r }
 myplot <- ggplot(iris, aes(x=Sepal.Length))+geom_bar(fill = "lightblue", colour = "black")
 
