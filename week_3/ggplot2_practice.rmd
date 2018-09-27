@@ -8,13 +8,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # 單變數：類別型
-```{r }
+```{r ,echo=T}
 myplot <- ggplot(iris, aes(x=Sepal.Length))+geom_bar(fill = "lightblue", colour = "black")
-
-```
-
-```{r , echo=T}
 plot(myplot)
 ```
+
 
 
