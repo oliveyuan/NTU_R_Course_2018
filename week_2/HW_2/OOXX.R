@@ -12,7 +12,7 @@ checkAB <- function(symbol){
   }
  
 }
-#¹Ï§Î
+#åœ–å½¢
 str1 <- c("1","_","4","_","7")
 str2 <- c("|","_","|","_","|")
 str3 <- c("2","_","5","_","8")
@@ -29,7 +29,7 @@ test <- c()
 while(T){
   
   print(graph)
-#¦^¼Æ§PÂ_
+#å›žæ•¸åˆ¤æ–·
   if(r == 10){
     
     cat("End in a draw!!!\n")
@@ -50,16 +50,16 @@ while(T){
     input <- (readline("Player A input(1~9) :"))
     
   }
-#¿é¤J¬°¤å¦r©Î¼Æ¦r
+#è¼¸å…¥ç‚ºæ–‡å­—æˆ–æ•¸å­—
   if(input == "exit"){
     
   }else{
     
     input <- as.integer(input)
   }
-#±N¿é¤J¦s¤J¤@¦V¶q¤è«KÆ[¹î¬O§_­«½Æ
+#å°‡è¼¸å…¥å­˜å…¥ä¸€å‘é‡æ–¹ä¾¿è§€å¯Ÿæ˜¯å¦é‡è¤‡
   test[r] <- input
-#¿é¤J§PÂ_«á¿é¥X¦^À³
+#è¼¸å…¥åˆ¤æ–·å¾Œè¼¸å‡ºå›žæ‡‰
     if(input == "exit"){
     
       cat("Bye-Bye!!")
@@ -101,7 +101,7 @@ while(T){
   
   
  
-#³Ó§Q±ø¥ó§PÂ_
+#å‹åˆ©æ¢ä»¶åˆ¤æ–·
  if(graph[1,1]==symbol && graph[1,3]==symbol && graph[1,5]==symbol){
    checkAB(symbol)
    break
