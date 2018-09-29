@@ -1,0 +1,17 @@
+---
+title: "Iris Plot"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 單變數：類別型
+```{r ,echo=T}
+myplot <- ggplot(iris, aes(x=Sepal.Length))+geom_bar(fill = "lightblue", colour = "black")
+plot(myplot)
+```
+
+
+
