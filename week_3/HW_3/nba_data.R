@@ -1,7 +1,7 @@
 library(ggplot2)
 mydata <-  read.csv("nba.csv")
 mydata <- mydata[1:8,1:23]
-#reorder=重新排序資料, coord_flip()=將x,y翻轉
+
 ggplot(mydata, aes(reorder(PLAYER, GP), GP)) + geom_bar(stat = "identity",fill = "red") + coord_flip()
 
 mydata1 <- mydata[1:30,1:23]
