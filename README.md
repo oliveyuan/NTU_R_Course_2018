@@ -47,4 +47,18 @@
     - 加分任務地圖視覺化
 
 ***
+## week_4
+
+* course_4(練習)
+  
+  
+* hw_4(作業)
+  - text_mining_wordcloud 
+  - extra_leafletMap 
+  
+* week_4任務
+  - 建立一命名為 week_4(or task_4, hw_4)的資料夾。
+  - 由透過社群網站 Open API 取得文本或是自行收集的文字資料。
+  - 完成文字雲上傳至資料夾中，須繳交兩份檔案[.Rmd, .html)]。
+  - 加分作業，參考 example_3_leafletMap.R、補充資料，完成互動式地圖
 
