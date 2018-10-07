@@ -1,11 +1,12 @@
 ---
-title: "Trump Top10 News"
+title: "Trump_Top10_News"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
 
 
 ```{r }
@@ -64,4 +65,4 @@ wordcloud(freqFrame$Var1,freqFrame$Freq,
 
 ```
 
-# ±q³o­Ó¤å¦r¶³¤¤¥i¥Hµo²{¡AºI¦Ü10/7¬°¤î¡ACNN¤W¤t´¶ªº¤Q¤j·s»D»PKavanaughªk©x¨Æ¥ó¦³µÛ¬Û·í¤jªºÃöÁp¡C¨Ã¥B±q¨ä¥L¨Ò¦p¡Gtrade, deal, agreement, negotiationsµ¥¦rªº¥X²{ÀW²v·¥°ª¤¤µo²{¡A¤t´¶ªº½T¬O°Ó¤H¯S½è¡A»P¥æ©ö¦³Ãöªºµü²æ¤£¤FÃö«Y¡C
+#å¾é€™å€‹æ–‡å­—é›²ä¸­å¯ä»¥ç™¼ç¾ï¼Œæˆªè‡³10/7ç‚ºæ­¢ï¼ŒCNNä¸Šå·æ™®çš„åå¤§æ–°èèˆ‡Kavanaughæ³•å®˜äº‹ä»¶æœ‰è‘—ç›¸ç•¶å¤§çš„é—œè¯ã€‚ä¸¦ä¸”å¾å…¶ä»–ä¾‹å¦‚ï¼štrade, deal, agreement, negotiationsç­‰å­—çš„å‡ºç¾é »ç‡æ¥µé«˜ä¸­ç™¼ç¾ï¼Œå·æ™®çš„ç¢ºæ˜¯å•†äººç‰¹è³ªï¼Œèˆ‡äº¤æ˜“æœ‰é—œçš„è©è„«ä¸äº†é—œä¿‚ã€‚
