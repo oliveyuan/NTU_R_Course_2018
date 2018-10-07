@@ -2,7 +2,6 @@
 title: "nba_data"
 output:
   html_document: default
-  pdf_document: default
 ---
 
 ```{r }
@@ -13,7 +12,7 @@ mydata <-  read.csv("nba.csv")
 
 
 
-# ³æÅÜ¼Æ¡GÃþ§O«¬
+# å–®è®Šæ•¸ï¼šé¡žåˆ¥åž‹
 ```{r }
 
 mydata0 <- mydata[1:8,1:23]
@@ -21,21 +20,21 @@ mydata0 <- mydata[1:8,1:23]
 ggplot(mydata0, aes(reorder(PLAYER, GP), GP)) + geom_bar(stat = "identity",fill = "red") + coord_flip()                                                                         
 ```
 
-# ³æÅÜ¼Æ¡G³sÄò«¬
+# å–®è®Šæ•¸ï¼šé€£çºŒåž‹
 ```{r }
 
 mydata1 <- mydata[1:30,1:23]
 ggplot(mydata1, aes(PLAYER, REB)) + geom_histogram(stat = "identity",fill = "green") + coord_flip()                                                            
 ```
 
-# ÂùÅÜ¼Æ¡G³sÄò vs ³sÄò
+# é›™è®Šæ•¸ï¼šé€£çºŒ vs é€£çºŒ
 ```{r}
 
 mydata2 <- mydata[1:100,1:23]
 ggplot(mydata2, aes(MIN, PTS )) + geom_point(stat = "identity", color = "blue")                                                                       
 ```
 
-# ÂùÅÜ¼Æ¡GÂ÷´² vs ³sÄò
+# é›™è®Šæ•¸ï¼šé›¢æ•£ vs é€£çºŒ
 ```{r }
 
 mydata3 <- mydata[1:100,1:23]
