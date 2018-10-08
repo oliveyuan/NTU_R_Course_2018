@@ -5,6 +5,8 @@
     
         > 從推特上找與川普有關的言論，並製作出文字雲與HW_4的CNN文字雲作比較
         
+        > twitterAPI_practice.R
+        
         > twitterAPI_practice.Rmd
         
         > twitterAPI_practice.html
