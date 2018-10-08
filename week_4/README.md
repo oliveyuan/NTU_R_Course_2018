@@ -10,6 +10,8 @@
         > twitterAPI_practice.html
         
         > https://oliveyuan.github.io/NTU_R_Course_2018/week_4/course_4/twitterAPI_practice.html
+        
+        > 參考網站:https://towardsdatascience.com/text-mining-twitter-extraction-and-stepwise-guide-to-generate-a-word-cloud-a2c9d626008d
 
 * HW_4(作業)
     - text_mining_wordcloud 
