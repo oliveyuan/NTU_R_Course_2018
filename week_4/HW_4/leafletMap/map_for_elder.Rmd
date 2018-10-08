@@ -1,0 +1,35 @@
+---
+title: "Map for Elder"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r }
+library(leaflet)
+library(jsonlite)
+
+# 從網頁抓資料
+data <- fromJSON("https://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=f432adf0-0e92-473f-a81e-5d5e8ef75965")
+
+lon <-  sapply(data$result$results$LON, as.numeric)
+lat <-  sapply(data$result$results$LAT, as.numeric)
+name <- as.character(data$result$results$ORG_NAME) 
+address <-as.character(data$result$results$ADDRESS) 
+
+# 將資料存成csv表格
+df <- data.frame(lon, lat, name, address)
+file_path <- "C:/datascience_course/NTU_R_Course_2018/week_4/HW_4/leafletMap/map_data.csv"
+write.table(df, file = file_path, row.names = F, sep = ",")
+
+# 製作地圖
+map_data <- read.csv("C:/datascience_course/NTU_R_Course_2018/week_4/HW_4/leafletMap/map_data.csv")
+leaflet(map_data) %>% addTiles() %>%
+  addMarkers(lon, lat, popup = paste("機構名稱:",name,"<br>","地址:",address))
+
+```
+
