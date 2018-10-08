@@ -27,7 +27,7 @@
 
     - leafletMap
     
-        > 利用上週的居家服務地圖作為基礎，作出leafletMap
+        > 利用上週的居家服務地圖作為基礎，作出互動式地圖
         
         > map_for_elder.R
         
