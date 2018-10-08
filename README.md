@@ -50,11 +50,11 @@
 ## week_4
 
 * course_4(練習)
-  
+  - twitterAPI_practice
   
 * hw_4(作業)
   - text_mining_wordcloud 
-  - extra_leafletMap 
+  - leafletMap 
   
 * week_4任務
   - 建立一命名為 week_4(or task_4, hw_4)的資料夾。
