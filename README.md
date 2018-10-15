@@ -74,7 +74,6 @@
     - 科技新報_TFIDF.R
     - 科技新報_TFIDF.Rmd
     - 科技新報_TFIDF.html 
-        > https://oliveyuan.github.io/NTU_R_Course_2018/week_5/HW_5/科技新報_TFIDF.html
     - show.csv
 
 * week_5任務
