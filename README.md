@@ -63,4 +63,23 @@
   - 加分作業，參考 example_3_leafletMap.R、補充資料，完成互動式地圖
 
 ***
+## week_5
+
+* course_5(練習)
+    - 老師提供的Shiny檔案
+
+* HW_5(作業)
+    - 新聞稿.txt
+    - 科技新報_爬蟲.R
+    - 科技新報_TFIDF.R
+    - 科技新報_TFIDF.Rmd
+    - 科技新報_TFIDF.html 
+    - show.csv
+
+* week_5任務
+  - 建立一命名為 week_5(or task_5, hw_5)的資料夾。
+  - 完成一份_________-上傳至資料夾中，須繳交兩份檔案[.Rmd, .html)]。
+  
+***
+
 
