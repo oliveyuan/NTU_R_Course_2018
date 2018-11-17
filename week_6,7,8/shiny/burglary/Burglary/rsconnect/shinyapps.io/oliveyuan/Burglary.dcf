@@ -1,0 +1,12 @@
+name: Burglary
+title: Burglary
+username:
+account: oliveyuan
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 572512
+bundleId: 1706058
+url: https://oliveyuan.shinyapps.io/Burglary/
+when: 1542464357.69554
+asMultiple: FALSE
+asStatic: FALSE

@@ -6,11 +6,12 @@ library(httr)
 library(jsonlite)
 library(tidyverse)
 library(shinydashboard)
+library(rsconnect)
 rm(list = ls())
 data <- function(x){
   from <- fromJSON("https://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=34a4a431-f04d-474a-8e72-8d3f586db3df")
   data <- as.data.frame(from)
-  data
+  return(data)
 }
 count_time <- function(data){
   one <- sum(data == "01~03")
@@ -21,6 +22,8 @@ count_time <- function(data){
   six <- sum(data == "16~18")
   seven <- sum(data == "19~21")
   eight <- sum(data == "22~24")
+  case <- list(one,two,three,four,five,six,seven,eight)
+  return(case)
 }
 count_month <- function(data){
   data <- as.numeric(data)
@@ -29,6 +32,8 @@ count_month <- function(data){
   for(i in c(1:12)){
     count[i] <- sum(data_clear == i)
   }
+  case <- count
+  return(case)
 }
 count_place <- function(data){
   data_clear <- substring(data,4,6)
@@ -44,63 +49,56 @@ count_place <- function(data){
   ten <- sum(data_clear == "士林區")
   eleven <- sum(data_clear == "北投區")
   twelve <- sum(data_clear == "文山區")
+  case <- list(one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve)
+  return(case)
+  
 }
 get.plot <- function(type){
   get_data <- data()
   if(type == "時段"){
     data <- get_data$result.results.發生時段
-    count_time(data)
-    件數 <- list(one,two,three,four,five,six,seven,eight)
     time_title <- list("01~03","04~06","07~09","10~12","13~15","16~18","19~21","22~24")
-    time_data <- as.data.frame(cbind(time_title, 件數))
+    time_data <- as.data.frame(cbind(time_title, count_time(data)))
     時段 <- unlist(time_title)
-    ggplot(time_data, aes(時段 , 件數)) + geom_bar(stat = "identity",fill = "red")
+    ggplot(time_data, aes(時段 ,count_time(data))) + geom_bar(stat = "identity",fill = "red")
   }else if(type == "月份"){
     data <- get_data$result.results.發生.現.日期
-    count_month(data)
     month_title <- list("JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC")
     title <- factor(month_title, levels=unique(month_title))
-    件數 <- count
-    month_data <- as.data.frame(cbind(title, 件數))
+    month_data <- as.data.frame(cbind(title, count_month(data)))
     月份 <- unlist(title)
-    ggplot(month_data, aes(月份 , 件數, fill=month_title)) + geom_bar(stat = "identity",fill = "blue")
+    ggplot(month_data, aes(月份 , count_month(data), fill=month_title)) + geom_bar(stat = "identity",fill = "blue")
   }else{
     data <- get_data$result.results.發生.現.地點
     count_place(data)
     area_title <- list("中正區","萬華區","大同區","中山區","松山區","大安區","信義區","內湖區","南港區","士林區","北投區","文山區")
-    件數 <- list(one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve)
-    area_data <- as.data.frame(cbind(area_title, 件數))
+    area_data <- as.data.frame(cbind(area_title, count_place(data)))
     地區 <- unlist(area_title)
-    ggplot(area_data, aes(地區 , 件數)) + geom_bar(stat = "identity",fill = "black")
+    ggplot(area_data, aes(地區 , count_place(data))) + geom_bar(stat = "identity",fill = "black")
   }
- 
+  
 }
 all_data <- function(x_var,y_var){
+  get_data <- data()
   if(x_var == "時段_件數"){
     data <- get_data$result.results.發生時段
-    count_time(data)
-    件數x <- list(one,two,three,four,five,six,seven,eight)
+    件數x <- count_time(data)
   }else if(x_var == "月份_件數"){
     data <- get_data$result.results.發生.現.日期
-    count_month(data)
-    件數x <- count
+    件數x <- count_month(data)
   }else{
     data <- get_data$result.results.發生.現.地點
-    count_place(data)
-    件數x <- list(one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve)
+    件數x <- count_place(data)
   }
   if(y_var == "時段_件數"){
     data <- get_data$result.results.發生時段
-    count_time(data)
-    件數y <- list(one,two,three,four,five,six,seven,eight)
+    件數y <- count_time(data)
   }else if(y_var == "月份_件數"){
     data <- get_data$result.results.發生.現.日期
-    count_month(data)
-    件數y <- count
+    件數y <-count_month(data)
   }else{
     data <- get_data$result.results.發生.現.地點
-    count_place(data)
-    件數y <- list(one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve)
+    件數y <-count_place(data)
   }
   
   data1 <- as.data.frame(cbind(件數x,件數y))
@@ -114,7 +112,7 @@ ui <- dashboardPage(
       menuItem("資料表格", tabName = "資料表格"),
       menuItem("統計資料", tabName = "統計資料"),
       menuItem("k-means分析", tabName = "k-means分析")
-      )
+    )
   ),
   dashboardBody(
     tabItems(
@@ -125,7 +123,7 @@ ui <- dashboardPage(
                 width = 12,
                 height ="720px"
               ) 
-               ),
+      ),
       tabItem("統計資料",
               box(
                 headerPanel("統計圖"),
@@ -150,7 +148,7 @@ ui <- dashboardPage(
                 width = 8,
                 height ="550px"
               )
-           )
+      )
     )
   )
 )

@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1542353168036.000,
+    "dirty" : false,
+    "encoding" : "ASCII",
+    "folds" : "",
+    "hash" : "584869714",
+    "id" : "BD77901D",
+    "lastKnownWriteTime" : 1531777310,
+    "last_content_update" : 1531777310,
+    "path" : "C:/datascience_course/NTU_R_Course_2018/week_6,7,8/Chicago crime data/Chicago crime data/app.R",
+    "project_path" : "app.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

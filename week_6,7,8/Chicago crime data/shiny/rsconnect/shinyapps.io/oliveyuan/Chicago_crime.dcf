@@ -1,0 +1,12 @@
+name: Chicago_crime
+title: Chicago_crime
+username:
+account: oliveyuan
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 577658
+bundleId: 1706097
+url: https://oliveyuan.shinyapps.io/Chicago_crime/
+when: 1542466643.36654
+asMultiple: FALSE
+asStatic: FALSE

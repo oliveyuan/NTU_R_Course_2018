@@ -1,0 +1,77 @@
+---
+title: "Chicago Crime Data Analize"
+output: html_document
+---
+# 資料取得和清理(只留下要分析的項目)
+
+```{r setup}
+rm(list = ls())
+library(httr)
+library(jsonlite)
+library(ggplot2)
+from <- read.csv("https://data.cityofchicago.org/resource/6zsd-86xi.csv")
+data <- data.frame(from)
+data[is.na(data)] <- 0
+data <- data[,-(1:8)]
+c <- c(2,4,5,6,10,11,12,15,16,18,19,22,23,24,25,26)
+data <- data[,-c]
+# write.table(data, file = "C:/datascience_course/NTU_R_Course_2018/week_6,7,8/Chicago crime data/data.csv", row.names = F, sep=",")
+```
+
+# 總體逮捕率
+
+```{r}
+arrest_data <- table(data[,1])
+label <- names(arrest_data)
+arrest <- data.frame(arrest_data)
+piepercent<-round(100*arrest[,2]/sum(arrest[,2]), 1)
+piepercent <-paste(piepercent, "%", sep = "")
+pie(arrest_data,labels = piepercent,col = topo.colors(length(label)))
+legend("topright",label, cex=0.8,fill=topo.colors(length(label)))
+
+```
+
+# 家庭內犯罪比率
+
+```{r}
+domestic_data <- table(data[,5])
+label <- names(domestic_data)
+domestic <- data.frame(domestic_data)
+piepercent<-round(100*domestic[,2]/sum(domestic[,2]), 1)
+piepercent <-paste(piepercent, "%", sep = "")
+pie(domestic_data,labels = piepercent,col = heat.colors(length(label)))
+legend("topright",label, cex=0.8,fill=heat.colors(length(label)))
+
+```
+
+# 犯罪類型統計
+
+```{r }
+type_data <- as.data.frame(table(data[,10])) 
+colnames(type_data) <- c("Type","Freq")
+ggplot(type_data,aes(Type,Freq)) + geom_bar(stat = "identity", color = "black") + coord_flip()
+```
+
+# 各警區逮捕率比較
+```{r}
+district_data <- as.data.frame(table(data[,4]))
+False <- list()
+True <- list()
+for(i in c(1:25)){
+ False[i] <- sum(data$district == i & data$arrest == "false")
+ True[i] <- sum(data$district == i & data$arrest == "true")
+}
+False <- unlist(False)
+True <- unlist(True)
+arrest <- as.data.frame(cbind(False,True))
+arrest <- arrest[-which(arrest$False == "0"& arrest$True == "0"),]
+arrest_rate <- arrest$True/(arrest$True + arrest$False)
+colnames(district_data) <- c("District","Freq")
+ggplot(district_data, aes(x = District, y = Freq , fill = arrest_rate))+ 
+geom_bar(stat ="identity",position = "identity")
+```
+
+
+### 顏色越淺代表逮捕率越高
+
+
