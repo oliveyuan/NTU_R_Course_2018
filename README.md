@@ -84,6 +84,7 @@
 ## week_6,7,8
 *  選定特定主題，參考 kaggle 模式，完成一份報告，並且以R shiny 呈現
    - 住家竊盜
+   - 芝加哥犯罪資料
 *  繳交檔案：Rmd (轉成 html ，在README 附上連結)、R shiny 程式碼（deploy 到 shinyapps.io，並在README 附上連結）、完整的README 說明
 
 ***
