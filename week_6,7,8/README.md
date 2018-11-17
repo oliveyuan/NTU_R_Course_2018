@@ -2,7 +2,7 @@
 - 芝加哥犯罪資料(chicago crime data)
   * 目前用R取下來的資料只有1000筆，但是原始資料有將近6萬筆，有考慮將這個發展成期末專題
   * shiny: https://oliveyuan.shinyapps.io/Chicago_crime/
-  * HTML: 
+  * HTML: https://oliveyuan.github.io/NTU_R_Course_2018/week_6,7,8/Chicago%20crime%20data/%E7%8A%AF%E7%BD%AA%E5%88%86%E6%9E%90.html
 ### 以下這兩項為我個人的練習。
 - NBA資料分析(以資料、EDA形式呈現)
   * 這是我目前有想到也許可以作為期末專題的題目，但是由於細節太多還沒有想清楚，因此暫時沒有對資料作深入的分析
