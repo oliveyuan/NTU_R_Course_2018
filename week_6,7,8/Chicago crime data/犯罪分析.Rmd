@@ -2,7 +2,7 @@
 title: "Chicago Crime Data Analize"
 output: html_document
 ---
-# 資料取得和清理(只留下要分析的項目)
+# Get and Clean Data
 
 ```{r setup}
 rm(list = ls())
@@ -18,7 +18,7 @@ data <- data[,-c]
 # write.table(data, file = "C:/datascience_course/NTU_R_Course_2018/week_6,7,8/Chicago crime data/data.csv", row.names = F, sep=",")
 ```
 
-# 總體逮捕率
+# Arrest_rate(all)
 
 ```{r}
 arrest_data <- table(data[,1])
@@ -31,7 +31,7 @@ legend("topright",label, cex=0.8,fill=topo.colors(length(label)))
 
 ```
 
-# 家庭內犯罪比率
+# Domestic crime_rate
 
 ```{r}
 domestic_data <- table(data[,5])
@@ -44,7 +44,7 @@ legend("topright",label, cex=0.8,fill=heat.colors(length(label)))
 
 ```
 
-# 犯罪類型統計
+# Type of crimes_count
 
 ```{r }
 type_data <- as.data.frame(table(data[,10])) 
@@ -52,7 +52,7 @@ colnames(type_data) <- c("Type","Freq")
 ggplot(type_data,aes(Type,Freq)) + geom_bar(stat = "identity", color = "black") + coord_flip()
 ```
 
-# 各警區逮捕率比較
+# Arrest_rate(district)
 ```{r}
 district_data <- as.data.frame(table(data[,4]))
 False <- list()
@@ -72,6 +72,6 @@ geom_bar(stat ="identity",position = "identity")
 ```
 
 
-### 顏色越淺代表逮捕率越高
+
 
 
