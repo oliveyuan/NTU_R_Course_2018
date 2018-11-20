@@ -1,6 +1,6 @@
 ### 作業
 - 芝加哥犯罪資料(chicago crime data)
-  * 目前用R取下來的資料只有1000筆，但是原始資料有將近6百萬筆，有考慮將這個發展成期末專題
+  * 目前取下來的資料只有1000筆，但是原始資料有將近6百萬筆，有考慮將這個發展成期末專題
   * shiny: https://oliveyuan.shinyapps.io/Chicago_crime/
   * HTML: https://oliveyuan.github.io/NTU_R_Course_2018/week_6,7,8/Chicago%20crime%20data/%E7%8A%AF%E7%BD%AA%E5%88%86%E6%9E%90.html
   * 芝加哥犯罪分析報告:報告PPT
