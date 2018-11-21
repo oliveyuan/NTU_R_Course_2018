@@ -4,6 +4,7 @@ library(jsonlite)
 library(ggplot2)
 library(shinydashboard)
 library(rsconnect)
+library(leaflet)
 data <- function(x){
   from <- read.csv("https://data.cityofchicago.org/resource/6zsd-86xi.csv")
   data <- data.frame(from)
@@ -55,12 +56,18 @@ choose_type <- function(type){
   
   
 }
+# map <- function(){
+#   leaflet() %>%
+#     addTiles() %>%  
+#     addMarkers(lng=120.239, lat=22.992, popup="000")
+# }
 ui <- dashboardPage(
   dashboardHeader(title = "Chicago_crime"),
   dashboardSidebar(
     sidebarMenu(
       menuItem("DATA", tabName = "DATA"),
-      menuItem("CHART", tabName = "CHART")
+      menuItem("CHART", tabName = "CHART"),
+      menuItem("MAP", tabName = "MAP")
     )
   ),
   dashboardBody(
@@ -81,7 +88,15 @@ ui <- dashboardPage(
                 width = 12,
                 height ="420px"
               )
-      )
+      ),
+      tabItem("MAP",
+              box(
+                headerPanel("MAP"),
+                leafletOutput("MAP"),
+                width = 12,
+                height ="620px"
+              )
+              )
     )
     
     
@@ -133,6 +148,23 @@ server <- function(input, output) {
         geom_bar(stat ="identity",position = "identity")
     }
   })
+   get_data <- data()
+   lat <- get_data[,6] 
+   lon <- get_data[,9]
+   map_data <- as.data.frame(cbind(lat,lon))
+   map_data <- map_data[-which(map_data$lat == "0"& map_data$lon == "0"),]
+   
+   point.df <- data.frame(
+     Lat = map_data$lat,
+     Long = map_data$lon
+   )
+   m <- leaflet(point.df) %>%
+     addTiles() %>%
+     setView(-87.70, 41.80, zoom = 10) %>% 
+     addCircleMarkers(lng = ~Long, lat = ~Lat, color = "black",radius = 0.5)
+  
+  output$MAP <- renderLeaflet(m)
+  
 }
 
 shinyApp(ui = ui, server = server)
