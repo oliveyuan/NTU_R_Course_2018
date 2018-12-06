@@ -88,3 +88,6 @@
 *  繳交檔案：Rmd (轉成 html ，在README 附上連結)、R shiny 程式碼（deploy 到 shinyapps.io，並在README 附上連結）、完整的README 說明
 
 ***
+
+## week_12
+* 將沒有做過 NER 的資料，加入 NER，再銜接以前做過的方法，看看有甚麼不同。
